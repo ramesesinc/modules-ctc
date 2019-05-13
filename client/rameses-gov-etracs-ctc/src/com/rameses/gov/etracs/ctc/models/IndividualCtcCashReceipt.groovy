@@ -1,4 +1,4 @@
-package com.rameses.gov.etracs.ctc;
+package com.rameses.gov.etracs.ctc.models;
 
 import com.rameses.rcp.annotations.*;
 import com.rameses.rcp.common.*;
@@ -8,15 +8,9 @@ import com.rameses.enterprise.treasury.cashreceipt.*;
 
 class  IndividualCtcCashReceipt extends AbstractCashReceipt {
     
-    @Service('IndividualCTCService')
+    @Service(value='IndividualCTCService')
     def ctcSvc;
-        
-    @Service('IndividualEntityService')
-    def entitySvc;
-
-    @Service('PersistenceService') 
-    def persistenceSvc; 
-    
+       
     @Service('ProfessionService')
     def profSvc;
 
@@ -64,18 +58,6 @@ class  IndividualCtcCashReceipt extends AbstractCashReceipt {
             needsrecalc = true;
         },
                 
-        'entity.payer.birthdate' : { o->
-            if(o) {
-                def a = entitySvc.calculateAge( [birthdate: o] );
-                entity.payer.putAll( a );
-            }
-            else {
-                entity.payer.remove("age");                
-                entity.payer.remove("seniorcitizen");
-            }
-            binding.refresh("entity.payer.seniorcitizen");
-        },
-        
         'entity.payer.address': { o->
             entity.barangay = o.barangay;
             binding.refresh("entity.barangay");
@@ -120,10 +102,7 @@ class  IndividualCtcCashReceipt extends AbstractCashReceipt {
     public def payerChanged( o ) { 
         if ( ! o.type.equalsIgnoreCase('INDIVIDUAL'))
             throw new Exception('Only individual entities are allowed.');
-        
-        def ent = persistenceSvc.read([ _schemaname: 'entityindividual', findBy:[objid: o.objid]]); 
-        if ( ent ) o.putAll(ent);
-        
+   
         hasmiddlename = (o.middlename != null)
         hasprofession = (o.profession != null)
         hastin = (o.tin != null)
@@ -135,11 +114,9 @@ class  IndividualCtcCashReceipt extends AbstractCashReceipt {
         hascivilstatus = (o.civilstatus != null)
         hasheight = (o.height != null)
         hasweight = (o.weight != null)
-        hassenior = (o.seniorcitizen != null)
         entity.barangay = o.address?.barangay;
         hasbusinessinfo = false;
         needsrecalc = true;
-    
         payerdata = ctcSvc.getCtcRelatedPayerData(o);
         
         if (payerdata.businessgross != null) {
@@ -153,7 +130,6 @@ class  IndividualCtcCashReceipt extends AbstractCashReceipt {
         binding.refresh('.*')
     }
     
-        
     void calculateTax(){
         entity.putAll( ctcSvc.calculateTax(entity) )
         updateBalances();

@@ -1,0 +1,16 @@
+import com.rameses.annotations.*;
+import com.rameses.util.*;
+
+class CTCReceiptInterceptor {
+
+	@Service(value="IndividualCTCPaymentService", connection="ctc-server")
+	def ctcSvc;
+
+	@Before(pattern="CashReceiptService.post", eval="#{args[0].formno=='0016' && args[0].txnmode != 'CAPTURE'}")
+	public def postIndividualCtcCashReceipt( evt ) { 
+		def a = evt.args[0];
+		ctcSvc.postCashReceipt(a);
+	}
+
+
+} 

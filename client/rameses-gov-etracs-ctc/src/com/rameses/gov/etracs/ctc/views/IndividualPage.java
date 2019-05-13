@@ -1,4 +1,4 @@
-package com.rameses.gov.etracs.ctc;
+package com.rameses.gov.etracs.ctc.views;
 
 import com.rameses.enterprise.treasury.cashreceipt.SerialCashReceiptPage;
 import com.rameses.rcp.ui.annotations.StyleSheet;
@@ -42,13 +42,11 @@ public class IndividualPage extends javax.swing.JPanel {
         xFormPanel2 = new com.rameses.rcp.control.XFormPanel();
         xTextField8 = new com.rameses.rcp.control.XTextField();
         xTextField9 = new com.rameses.rcp.control.XTextField();
-        xCheckBox1 = new com.rameses.rcp.control.XCheckBox();
         xSeparator1 = new com.rameses.rcp.control.XSeparator();
         xCheckBox2 = new com.rameses.rcp.control.XCheckBox();
         xTextField11 = new com.rameses.rcp.control.XTextField();
         jPanel9 = new javax.swing.JPanel();
         formPanel3 = new com.rameses.rcp.util.FormPanel();
-        xDateField1 = new com.rameses.rcp.control.XDateField();
         xLabel1 = new com.rameses.rcp.control.XLabel();
         xCheckBox3 = new com.rameses.rcp.control.XCheckBox();
         xDecimalField1 = new com.rameses.rcp.control.XDecimalField();
@@ -187,13 +185,6 @@ public class IndividualPage extends javax.swing.JPanel {
 
         formPanel1.add(xFormPanel2);
 
-        xCheckBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        xCheckBox1.setCaption("Is Senior?");
-        xCheckBox1.setDepends(new String[] {"entity.payer.birthdate"});
-        xCheckBox1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        xCheckBox1.setName("entity.payer.seniorcitizen"); // NOI18N
-        formPanel1.add(xCheckBox1);
-
         xSeparator1.setPreferredSize(new java.awt.Dimension(0, 20));
 
         org.jdesktop.layout.GroupLayout xSeparator1Layout = new org.jdesktop.layout.GroupLayout(xSeparator1);
@@ -244,13 +235,6 @@ public class IndividualPage extends javax.swing.JPanel {
 
         formPanel3.setCaptionWidth(120);
         formPanel3.setPadding(new java.awt.Insets(5, 5, 10, 0));
-
-        xDateField1.setCaption("Transaction Date");
-        xDateField1.setEnabled(false);
-        xDateField1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        xDateField1.setName("entity.txndate"); // NOI18N
-        xDateField1.setPreferredSize(new java.awt.Dimension(100, 19));
-        formPanel3.add(xDateField1);
 
         xLabel1.setCaption("Barangay");
         xLabel1.setExpression("#{ entity.barangay.name }");
@@ -402,13 +386,11 @@ public class IndividualPage extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private com.rameses.rcp.control.XButton xButton1;
-    private com.rameses.rcp.control.XCheckBox xCheckBox1;
     private com.rameses.rcp.control.XCheckBox xCheckBox2;
     private com.rameses.rcp.control.XCheckBox xCheckBox3;
     private com.rameses.rcp.control.XComboBox xComboBox2;
     private com.rameses.rcp.control.XComboBox xComboBox3;
     private com.rameses.rcp.control.XComboBox xComboBox4;
-    private com.rameses.rcp.control.XDateField xDateField1;
     private com.rameses.rcp.control.XDateField xDateField3;
     private com.rameses.rcp.control.XDecimalField xDecimalField1;
     private com.rameses.rcp.control.XDecimalField xDecimalField2;

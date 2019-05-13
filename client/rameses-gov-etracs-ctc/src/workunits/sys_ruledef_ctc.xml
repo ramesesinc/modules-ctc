@@ -1,0 +1,7 @@
+<workunit extends="wtemplates/RulesetList.xml">
+    <invokers>
+        <invoker folderid="/explorer/developer/rulemgmt" caption="CTC Rule Def" 
+                 action="init" index="11" role="RULE_AUTHOR"/>
+
+    </invokers>
+</workunit>

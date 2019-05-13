@@ -1,12 +1,13 @@
 <workunit extends="wtemplates/gov/treasury/BasicCashReceiptController.xml">
     <invokers>
+        <invoker type="collectiontype:handler" caption="CTC Individual" name="ctcindividual" formno="0016" formtype="serial" />
         <invoker type="cashreceipt:ctcindividual" action="init" />
     </invokers>
     
-    <code class="com.rameses.gov.etracs.ctc.IndividualCtcCashReceipt"/>
+    <code class="com.rameses.gov.etracs.ctc.models.IndividualCtcCashReceipt"/>
     
     <pages>
-        <page name="default" template="com.rameses.gov.etracs.ctc.IndividualPage"/>
+        <page name="default" template="com.rameses.gov.etracs.ctc.views.IndividualPage"/>
     </pages>
     
 </workunit>

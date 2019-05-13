@@ -7,10 +7,10 @@ import com.rameses.osiris2.common.*;
 import com.rameses.enterprise.treasury.cashreceipt.*;
 
 class  CorporateCtcCashReceipt extends AbstractCashReceipt {
-    @Service('CorporateCTCService')
+    @Service(value='CorporateCTCService', connection="ctc")
     def ctcSvc;
     
-    @Service('PersistenceService') 
+    @Service(value='PersistenceService', connection="ctc") 
     def persistenceSvc;     
 
     def payerdata  = [:];
