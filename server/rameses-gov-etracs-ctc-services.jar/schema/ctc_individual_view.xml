@@ -1,4 +1,4 @@
-<schema adpater="ctcdb">
+<schema adpater="main">
 	<element tablename="ctc_individual_view">
 		<field name="objid" primary="true"/>
 		<field name="receiptno" caption="Receipt No" indexed="true" searchable="true"/>

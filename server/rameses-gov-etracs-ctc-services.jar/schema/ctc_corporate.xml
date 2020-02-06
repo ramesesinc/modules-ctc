@@ -1,16 +1,6 @@
-<schema adapter="ctcdb">
-	<element tablename="ctc_corporate">
+<schema>
+	<element name="ctc_corporate" tablename="cashreceipt_ctc_corporate">
 		<field name="objid" primary="true" />
-
-		<field name="receiptno" />
-		<field name="receiptid" />		
-		<field name="dtissued" />
-		<field name="dtexpiry" />
-		<field name="txnmode" />
-		<field name="voided" />
-		
-
-
 		<field name="payer_tin" />
 		<field name="payer_orgtype" />
 		<field name="payer_nature" />

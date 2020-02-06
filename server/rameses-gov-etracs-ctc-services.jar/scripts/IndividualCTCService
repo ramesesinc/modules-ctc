@@ -20,13 +20,22 @@ public class IndividualCTCService {
 	@ProxyMethod
 	public def getCtcRelatedPayerData(entity){
 		def g = [newbusiness:false];
-		/*
 		if(entity.birthdate) {
 			def a = entitySvc.calculateAge( [birthdate: entity.birthdate] );
 			g.putAll( a );
-		}
-		*/		
+		}		
 		return g;
+
+		// info fields required:
+		// newbusiness, businessgross
+		// def business = em.findBusinessInfo(entity)
+		/*
+		def info = [
+			newbusiness 	: (business.apptype == null ? false : business.apptype.equalsIgnoreCase('NEW')),
+			businessgross 	: business.totalgross 
+		]
+		return info 
+		*/
 	}
 
 	@ProxyMethod

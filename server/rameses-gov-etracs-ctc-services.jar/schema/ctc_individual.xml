@@ -1,16 +1,6 @@
-<schema adapter="ctcdb">
-	<element tablename="ctc_individual">
+<schema>
+	<element name="ctc_individual" tablename="cashreceipt_ctc_individual">
 		<field name="objid" primary="true" />
-
-		<field name="receiptno" />
-		<field name="receiptid" />		
-		<field name="dtissued" />
-		<field name="dtexpiry" />
-		<field name="txnmode" />
-		<field name="barangay_objid" />
-		<field name="barangay_name" />
-		<field name="voided" />
-
 		<field name="payer_profession" />
 		<field name="payer_citizenship" />
 		<field name="payer_civilstatus" />
@@ -29,6 +19,8 @@
 		<field name="interest" type="decimal" required="true" />
 		<field name="amountdue" type="decimal" required="true" />
 		<field name="interestdue" type="decimal" required="true" />
+		<field name="barangay_objid" />
+		<field name="barangay_name" />
 		<field name="brgytaxshare" />
 		<field name="brgyinterestshare" />
 	</element>

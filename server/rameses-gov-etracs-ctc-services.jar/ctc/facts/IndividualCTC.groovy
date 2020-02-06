@@ -24,10 +24,10 @@ class IndividualCTC {
     int age;
 
     public IndividualCTC(def m) {
-        if(m.profession!=null) profession = m.profession;
-        if(m.citizenship!=null) citizenship = m.citizenship;
-        if(m.gender  !=null) gender   = m.gender  ;
-        if(m.civilstatus!=null)  civilstatus = m.civilstatus;
+        if(m.payer?.profession!=null) profession = m.payer.profession;
+        if(m.payer?.citizenship!=null) citizenship = m.payer.citizenship;
+        if(m.payer?.gender  !=null) gender   = m.payer.gender  ;
+        if(m.payer?.civilstatus!=null)  civilstatus = m.payer.civilstatus;
         if(m.payer?.seniorcitizen!=null) seniorcitizen = m.payer?.seniorcitizen;
         if(m.payer?.age!=null) age = m.payer?.age;
         if(m.newbusiness!=null) newbusiness = m.newbusiness;
@@ -35,7 +35,8 @@ class IndividualCTC {
         if(m.businessgross!=null) businessgross = m.businessgross;
         if(m.propertyincome!=null) propertyincome = m.propertyincome;
         if(m.barangayid!=null) barangayid = m.barangayid;
-        if(m.additional!=null) additional = m.additional;
+
+        additional = m.hasadditional.toString().matches('true|1'); 
     }
     
     public double getTotaltax() {
